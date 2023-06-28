@@ -3,6 +3,7 @@
 import { styled } from "styled-components";
 import Center from "./Center";
 import Button from "./Button";
+import ButtonLink from "./ButtonLink";
 
 const Bg = styled.div`
   background-color: #222;
@@ -23,7 +24,7 @@ const Description = styled.p`
 
 const ColumnWrapper = styled.div`
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
+  grid-template-columns: 1.1fr 0.9fr;
   gap: 40px;
   img {
     max-width: 100%;
@@ -53,15 +54,12 @@ export default function Featured({children}) {
               <div>
                 <Title>{children?.title}</Title>
                 <Description>
-                  Culpa ipsa et ducimus rem, consequuntur, eius iste beatae esse
-                  numquam, eaque facilis! Optio expedita ut reprehenderit eum
-                  est repudiandae hic, neque odio magni laboriosam quod
-                  voluptates! Officia, iste repudiandae.
+                  {children?.description}
                 </Description>
                 <ButtonWrapper>
-                  <Button outline={1} white={1} size={"l"}>
+                  <ButtonLink href={`/products/` + children._id} outline={1} white={1} size={"l"}>
                     Read more
-                  </Button>
+                  </ButtonLink>
                   <Button primary={1} size={"l"}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -78,8 +76,8 @@ export default function Featured({children}) {
             </Column>
             <Column>
               <img
-                src="https://kainos-img.dgn.lt/photos2_25_125332528/img.jpg"
-                alt="macbook"
+                src={children?.images[0]}
+                alt={children?.title}
               />
             </Column>
           </ColumnWrapper>

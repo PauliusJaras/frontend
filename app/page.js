@@ -2,12 +2,18 @@ import { mongooseConnect } from "@/app/lib/mongoose";
 import { Product } from "@/models/Product";
 
 import Featured from "@/components/Featured";
+import NewProducts from "@/components/NewProducts";
 
 export default async function Home() {
 
   await mongooseConnect();
-  const product = await Product.findById("648f8aa4e2cc0983ffc58896");
-  console.log(product);
+  const featuredProduct = await Product.findById("649c2491d58e35a94d7a14d4");
+  const newProducts = await Product.find({}, null, {sort: {'_id':-1}, limit: 4});
 
-  return <Featured >{product}</Featured>;
+  return (
+  <div>
+  <Featured >{featuredProduct}</Featured>
+  <NewProducts>{newProducts}</NewProducts>
+  </div>
+  )
 }
