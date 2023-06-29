@@ -1,13 +1,31 @@
-const { createContext, useState } = require("react");
+const { createContext, useState, useEffect } = require("react");
 
-const CartContext = createContext({});
+export const CartContext = createContext({});
 
 export function CartContextProvider({ children }) {
-  const [cartProducts, setCartProducts] = useState([]);
+  const [cartProducts, setCartProducts] = useState(
+    JSON.parse(localStorage.getItem("cart")) || []
+  );
+
+  function addProduct(productId) {
+    setCartProducts((prev) => [...prev, productId]);
+  }
+
+  useEffect(() => {
+    if (cartProducts?.length > 0) {
+      localStorage.setItem("cart", JSON.stringify(cartProducts));
+    }
+  }, [cartProducts]);
 
   return (
-    <CartContext.Provider value={cartProducts}>
-        {children}
+    <CartContext.Provider
+      value={{
+        cartProducts,
+        setCartProducts,
+        addProduct,
+      }}
+    >
+      {children}
     </CartContext.Provider>
   );
 }
