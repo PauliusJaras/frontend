@@ -3,13 +3,19 @@ const { createContext, useState, useEffect } = require("react");
 export const CartContext = createContext({});
 
 export function CartContextProvider({ children }) {
-  const [cartProducts, setCartProducts] = useState(
-    JSON.parse(localStorage.getItem("cart")) || []
-  );
+
+  const [cartProducts, setCartProducts] = useState([]);
 
   function addProduct(productId) {
     setCartProducts((prev) => [...prev, productId]);
   }
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem('cart'));
+    if(data !== null){
+      setCartProducts([...data]);
+    }
+  }, [])
 
   useEffect(() => {
     if (cartProducts?.length > 0) {

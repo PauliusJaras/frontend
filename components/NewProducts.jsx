@@ -17,12 +17,12 @@ const Title = styled.h2`
     font-weight: 500;
 `
 
-export default function NewProducts({ children }) {
+export default function NewProducts({ newProducts }) {
   return (
     <Center>
         <Title>New Arrivals</Title>
       <ProductsGrid>
-        {children?.map((child, index) => (
+        {newProducts?.map((child, index) => (
           <ProductBox key={index} {...child}></ProductBox>
         ))}
       </ProductsGrid>

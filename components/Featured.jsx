@@ -45,12 +45,12 @@ const ButtonWrapper = styled.div`
   margin-top: 25px;
 `;
 
-export default function Featured({children}) {
+export default function Featured({featuredProduct}) {
 
   const {addProduct} = useContext(CartContext);
 
   const addFeaturedToCart = _ => {
-    addProduct(children._id);
+    addProduct(featuredProduct?._id);
   }
 
   return (
@@ -60,12 +60,12 @@ export default function Featured({children}) {
           <ColumnWrapper>
             <Column>
               <div>
-                <Title>{children?.title}</Title>
+                <Title>{featuredProduct?.title}</Title>
                 <Description>
-                  {children?.description}
+                  {featuredProduct?.description}
                 </Description>
                 <ButtonWrapper>
-                  <ButtonLink href={`/products/` + children._id} outline={1} white={1} size={"l"}>
+                  <ButtonLink href={`/products/` + featuredProduct?._id} outline={1} white={1} size={"l"}>
                     Read more
                   </ButtonLink>
                   <Button onClick={addFeaturedToCart} white={1} size={"l"}>
@@ -77,8 +77,8 @@ export default function Featured({children}) {
             </Column>
             <Column>
               <img
-                src={children?.images[0]}
-                alt={children?.title}
+                src={featuredProduct?.images[0]}
+                alt={featuredProduct?.title}
               />
             </Column>
           </ColumnWrapper>

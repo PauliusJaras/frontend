@@ -12,8 +12,8 @@ export default async function Home() {
 
   return (
   <div>
-  <Featured >{featuredProduct}</Featured>
-  <NewProducts>{newProducts}</NewProducts>
+  <Featured featuredProduct={featuredProduct}></Featured>
+  <NewProducts newProducts={newProducts}></NewProducts>
   </div>
   )
 }
