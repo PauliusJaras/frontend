@@ -10,6 +10,17 @@ export function CartContextProvider({ children }) {
     setCartProducts((prev) => [...prev, productId]);
   }
 
+  function removeProduct(productId){
+    setCartProducts((prev) => {
+      const pos = prev.indexOf(productId);
+      if(pos !== -1){
+        return prev.filter((value, index) => index !== pos);
+      } else{
+        return prev;
+      }
+    })
+  }
+
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem('cart'));
     if(data !== null){
@@ -29,6 +40,7 @@ export function CartContextProvider({ children }) {
         cartProducts,
         setCartProducts,
         addProduct,
+        removeProduct,
       }}
     >
       {children}
