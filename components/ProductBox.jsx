@@ -52,7 +52,7 @@ export default function ProductBox({ _id, title, description, price, images })
     addProduct(_id);
   }
 
-    const url = '/product/'+_id;
+    const url = '/products/'+_id;
 
   return (
     <ProductWrapper>
