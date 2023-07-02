@@ -51,7 +51,7 @@ const CityHolder = styled.div`
 `;
 
 export default function Cart() {
-  const { cartProducts, addProduct, removeProduct } = useContext(CartContext);
+  const { cartProducts, addProduct, removeProduct, clearCart } = useContext(CartContext);
   const [products, setProducts] = useState([]);
 
   const [name, setName] = useState("");
@@ -60,6 +60,7 @@ export default function Cart() {
   const [postalCode, setPostalCode] = useState("");
   const [address, setAddress] = useState("");
   const [country, setCountry] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
 
   let totalAmount = 0;
   for (const productId of cartProducts) {
@@ -76,6 +77,16 @@ export default function Cart() {
       setProducts([]);
     }
   }, [cartProducts]);
+
+  useEffect(() => {
+    if(typeof window === undefined){
+      return;
+    }
+    if (window.location.href.includes("success")){
+      setIsSuccess(true);
+      clearCart();
+    }
+  }, [])
 
   const addQuantity = (id) => {
     addProduct(id);
@@ -102,7 +113,7 @@ export default function Cart() {
     }
   }
 
-  if (window?.location.href.includes("success")) {
+  if (isSuccess) {
     return (
       <>
         <Center>

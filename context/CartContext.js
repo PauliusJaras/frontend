@@ -21,6 +21,12 @@ export function CartContextProvider({ children }) {
     })
   }
 
+  function clearCart(){
+    console.log("Clearing cart...")
+    setCartProducts([]);
+    localStorage.setItem("cart", JSON.stringify(cartProducts));
+  }
+
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem('cart'));
     if(data !== null){
@@ -41,6 +47,7 @@ export function CartContextProvider({ children }) {
         setCartProducts,
         addProduct,
         removeProduct,
+        clearCart,
       }}
     >
       {children}

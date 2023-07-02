@@ -37,8 +37,8 @@ export async function POST(request) {
     line_items,
     mode: 'payment',
     customer_email: email,
-    success_url: 'http://localhost:3000/cart?success=true',
-    cancel_url: 'http://localhost:3000/cart?success=false',
+    success_url: 'http://localhost:3001/cart?success=true',
+    cancel_url: 'http://localhost:3001/cart?cancel=true',
     metadata: {orderId: orderDoc._id.toString()},
   })
   
