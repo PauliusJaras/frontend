@@ -1,6 +1,6 @@
 import { mongooseConnect } from "@/app/lib/mongoose";
 import Center from "@/components/Center";
-import PageTitle from "@/components/PageTitle";
+import UniqueProduct from "@/components/UniqueProduct";
 import { Product } from "@/models/Product";
 
 export default async function Page({ params }) {
@@ -16,7 +16,7 @@ export default async function Page({ params }) {
   return (
     <>
       <Center>
-        <PageTitle>{product?.title}</PageTitle>
+        <UniqueProduct product={product}></UniqueProduct>
       </Center>
     </>
   );
