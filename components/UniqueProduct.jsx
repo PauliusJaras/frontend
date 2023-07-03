@@ -10,9 +10,12 @@ import { CartContext } from "@/context/CartContext";
 
 const ColumnWrapper = styled.div`
     display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    margin-top: 40px;
+    grid-template-columns: 1;
+    margin: 40px 0;
     gap: 40px;
+    @media screen and (min-width: 768px) {
+        grid-template-columns: 0.8fr 1.2fr;
+    }
 `;
 
 const WhiteBox = styled.div`
