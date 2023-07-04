@@ -43,16 +43,16 @@ export default function UniqueProduct({product}){
         <>
             <ColumnWrapper>
                 <WhiteBox>
-                    <ProductImages images={product.images}></ProductImages>
+                    <ProductImages images={product?.images}></ProductImages>
                 </WhiteBox>
                 <div>
-                    <PageTitle>{product.title}</PageTitle>
+                    <PageTitle>{product?.title}</PageTitle>
                     <p>
-                        {product.description}
+                        {product?.description}
                     </p>
                     <PriceRow>
-                    <Price>${product.price}</Price>
-                    <Button onClick={() => addProduct(product._id)} primary={1}>
+                    <Price>${product?.price}</Price>
+                    <Button onClick={() => addProduct(product?._id)} primary={1}>
                         <CartIcon></CartIcon>
                         Add To Cart
                     </Button>

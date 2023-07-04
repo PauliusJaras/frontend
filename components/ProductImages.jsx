@@ -48,7 +48,7 @@ export default function ProductImages({ images }) {
         <PrimaryImage src={primaryImage} alt="image"></PrimaryImage>
       </PrimaryImageWrapper>
       <ImageButtons>
-        {images.map((image, index) => {
+        {images?.map((image, index) => {
           return (
             <ImageButton active={image === primaryImage} key={index}>
               <Image
