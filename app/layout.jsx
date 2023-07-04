@@ -1,10 +1,7 @@
-'use client';
-
-import Header from "@/components/Header";
 import "./globals.css";
 import { Roboto } from "next/font/google";
 import StyledComponentsRegistry from "./lib/registry";
-import { CartContextProvider } from "@/context/CartContext";
+import PageWrapper from "@/components/PageWrapper";
 
 const roboto = Roboto({ weight: ['400', '500', '700'], subsets: ["latin"] });
 
@@ -17,12 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <StyledComponentsRegistry>
-        <CartContextProvider>
-        <body className={roboto.className}>
-          <Header></Header>
-          {children}
-        </body>
-        </CartContextProvider>
+        <PageWrapper roboto={roboto}>{children}</PageWrapper>
       </StyledComponentsRegistry>
     </html>
   );
