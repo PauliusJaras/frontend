@@ -2,6 +2,8 @@
 
 Simple ecommerce platform with basic functions, that allow the user to find products, use the cart, and checkout. 
 
+Visit site - [Ecommerce Platform](https://frontend-ojufxl427-pauliusjaras.vercel.app/)
+
 ## Description
 
 A project created with the latest Next js version (App Router), styled components, react, mongoDB, mongoose, Stripe, and axios. The products are retrieved from a live database. Pages are composed of components and styled components. 
