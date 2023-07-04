@@ -8,6 +8,7 @@ const nextConfig = {
         appDir: true,
         serverComponentsExternalPackages: ["mongoose"],
       },
+      output: 'export',
 }
 
   
