@@ -8,6 +8,12 @@ Visit site - [Ecommerce Platform](https://frontend-nine-iota-20.vercel.app/)
 
 A project created with the latest Next js version (App Router), styled components, react, mongoDB, mongoose, Stripe, and axios. The products are retrieved from a live database. Pages are composed of components and styled components. 
 
+To test payments, use this card number: 
+
+```
+4242424242424242
+```
+
 ## Getting Started
 
 #### Prerequisites
@@ -44,6 +50,7 @@ Add **.env.local** file to the root folder and provide keys for these variables
 MONGODB_URI="YOUR MONGO DB URI"
 STRIPE_SECRET_KEY="YOUR SECRET KEY"
 STRIPE_PUBLIC_KEY="YOUR PUBLIC KEY"
+STRIPE_URL="DOMAIN URL"
 ```
 
 Run the server
