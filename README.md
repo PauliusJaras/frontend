@@ -2,7 +2,7 @@
 
 Simple ecommerce platform with basic functions, that allow the user to find products, use the cart, and checkout. 
 
-Visit site - [Ecommerce Platform](https://frontend-ojufxl427-pauliusjaras.vercel.app/)
+Visit site - [Ecommerce Platform](https://frontend-nine-iota-20.vercel.app/)
 
 ## Description
 
